@@ -1,0 +1,23 @@
+{
+  "suite": "Chromium end-to-end",
+  "passed": 13,
+  "failed": 0,
+  "durationMs": 22539,
+  "browser": "154.0.8037.57",
+  "checks": [
+    "Fixture simulation mode prominently visible",
+    "Streamer starts game through browser → API → engine → rendered response",
+    "Hostile chat ignored and never inserted as HTML",
+    "One viewer cannot switch roles",
+    "Pause freezes gameplay",
+    "Guided replay completes all three complementary roles, clues, votes and timed charge",
+    "Read-only overlay displays shared victory without streamer controls",
+    "Browser refresh recovers current game",
+    "Reset clears progress and increments expedition",
+    "Reset interrupts active replay; stale queued events cannot enter new round",
+    "390px mobile view has no horizontal overflow",
+    "Inputs labelled, document language and live status declared; keyboard focus styles present",
+    "No uncaught browser exceptions"
+  ],
+  "consoleErrors": []
+}

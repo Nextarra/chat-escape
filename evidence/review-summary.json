@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "baselineArtifactVersion": 0,
+  "targetedBefore": {
+    "passed": 0,
+    "failed": 2
+  },
+  "targetedAfter": {
+    "passed": 2,
+    "failed": 0
+  },
+  "fullNode": {
+    "passed": 47,
+    "failed": 0
+  },
+  "creatorBrowser": {
+    "passed": 13,
+    "failed": 0
+  },
+  "liveTwitch": "not attempted / unverified"
+}

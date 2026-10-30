@@ -1,0 +1,12 @@
+{
+  "mode": "FIXTURE SIMULATION — NOT TWITCH",
+  "events": 18,
+  "status": "won",
+  "stats": {
+    "accepted": 12,
+    "duplicate": 1,
+    "rejected": 2
+  },
+  "deterministicRecovery": "identical",
+  "durationMs": 1.621
+}

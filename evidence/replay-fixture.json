@@ -1,0 +1,134 @@
+[
+  {
+    "type": "start",
+    "now": 2000
+  },
+  {
+    "type": "chat",
+    "now": 3000,
+    "id": "replay-0",
+    "user": "scout",
+    "text": "!join scout",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 4000,
+    "id": "replay-1",
+    "user": "scribe",
+    "text": "!join scribe",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 5000,
+    "id": "replay-2",
+    "user": "engineer",
+    "text": "!join engineer",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 6000,
+    "id": "replay-3",
+    "user": "scout",
+    "text": "!join scribe",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 7000,
+    "id": "replay-4",
+    "user": "scout",
+    "text": "!scan prism",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 8000,
+    "id": "replay-5",
+    "user": "scribe",
+    "text": "!decode mural",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 9000,
+    "id": "replay-6",
+    "user": "engineer",
+    "text": "!tune radio",
+    "run": 1
+  },
+  {
+    "type": "pause",
+    "now": 10000
+  },
+  {
+    "type": "chat",
+    "now": 11000,
+    "id": "during-pause",
+    "user": "scout",
+    "text": "!vote moon-star-sun",
+    "run": 1
+  },
+  {
+    "type": "start",
+    "now": 12000
+  },
+  {
+    "type": "chat",
+    "now": 13000,
+    "id": "during-pause",
+    "user": "scout",
+    "text": "!vote moon-star-sun",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 14000,
+    "id": "replay-9",
+    "user": "scout",
+    "text": "!vote moon-star-sun",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 15000,
+    "id": "replay-10",
+    "user": "scribe",
+    "text": "!vote moon-star-sun",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 16000,
+    "id": "replay-11",
+    "user": "engineer",
+    "text": "!vote moon-star-sun",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 17000,
+    "id": "replay-12",
+    "user": "scout",
+    "text": "!charge",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 18000,
+    "id": "replay-13",
+    "user": "scribe",
+    "text": "!charge",
+    "run": 1
+  },
+  {
+    "type": "chat",
+    "now": 19000,
+    "id": "replay-14",
+    "user": "engineer",
+    "text": "!charge",
+    "run": 1
+  }
+]

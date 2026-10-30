@@ -1,0 +1,15 @@
+{
+  "environment": "Lenovo-IdeaPad Chrome",
+  "date": "2026-10-30",
+  "mode": "FIXTURE SIMULATION - NO TWITCH",
+  "checks": [
+    "Initial cooperation replay reached WON with 3 roles and 12 accepted commands",
+    "Repeated replay reset to a new expedition",
+    "Pause interrupted replay with explicit stopped-by-streamer message and frozen progress",
+    "Fresh replay after interruption reached WON with 3 teams home",
+    "Spectator overlay showed shared victory, all roles and recovered clues",
+    "1280x720 intended OBS-size victory HUD visually verified",
+    "Default short browser viewport clips some HUD content; use prescribed OBS dimensions"
+  ],
+  "limits": "No actual Twitch, participant, OBS, broadcast or recording verification. Archived accessibility/mobile evidence was not rerun in this continuation."
+}

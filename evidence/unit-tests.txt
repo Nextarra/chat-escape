@@ -1,0 +1,61 @@
+
+> chat-escape-observatory@0.1.0 test
+> node --test test/*.test.js
+
+✔ end to end: complementary roles, clues, consensus, synchronized shared reveal (5.738686ms)
+✔ one account cannot switch roles or discover another team clue (0.333382ms)
+✔ duplicates apply once even after cooldown (0.327243ms)
+✔ pause freezes gameplay and resume requires fresh delivery (0.39826ms)
+✔ reset rejects stale round and old timestamp; clears roles and progress (0.574375ms)
+✔ cooldowns block spam; wrong sequence cannot advance; all roles required (0.41865ms)
+✔ expired charges require renewed participation (0.727985ms)
+✔ malformed, hostile, unknown and overlong commands cannot change puzzle (0.453001ms)
+✔ finite timestamps and known actions enforced (3.962623ms)
+✔ public view excludes identity, raw events and dedupe IDs (2.200472ms)
+✔ out-of-order charges spanning 21 seconds cannot win and replay identically (0.840745ms)
+✔ strict 12-second inclusive boundary: 12000ms wins, 12001ms requires fresh charge (0.410297ms)
+✔ future and old event time cannot poison ordering or produce future charge UI (0.316787ms)
+✔ delayed pre-resume message rejected even if never delivered while paused (0.167112ms)
+✔ controls preserve temporal floor when local clock moves backward; reset cannot admit old events (0.151328ms)
+✔ messages sharing reset or resume millisecond are conservatively rejected (0.258499ms)
+✔ all six arrival orders of charges spread over 21 seconds remain unsolved (3.437693ms)
+✔ all 27 team vote combinations: only joint correct route unlocks synchronization (7.017159ms)
+✔ seeded hostile flood cannot win, leak content, or change phase while paused (27.11961ms)
+✔ HUD uses earliest active charge countdown and shows outstanding team contribution (1.203121ms)
+✔ HUD pause and victory replace ticking timer with clear state (0.411169ms)
+✔ HTTP fixture controls, privacy, XSS input, overlay and replay exclusion (59.196621ms)
+✔ CSRF, missing controller, hostile origin and host blocked (27.801456ms)
+✔ live mode refuses fixture injection and refuses start before connection (7.315589ms)
+✔ journal recovery preserves progress, identity and duplicate protection (4.634904ms)
+✔ corrupt journal fails closed, never silently resets (0.707515ms)
+✔ persistence failure leaves in-memory state unchanged (0.212099ms)
+✔ connection loss pauses live game and does not auto resume (4.20605ms)
+✔ oversized and malformed JSON requests rejected before mutation (6.446711ms)
+✔ mocked Twitch packet → live adapter → durable engine → public HTTP view (8.739782ms)
+✔ live recovery starts paused, requiring deliberate streamer resume (3.230231ms)
+✔ storage failure on disconnect blocks new packets and resume without uncaught errors (6.621785ms)
+✔ requires supplied credentials; does not create or request grants (28.095399ms)
+✔ welcome creates documented WebSocket chat subscription and deduplicates deliveries (2.624089ms)
+✔ server-directed migration waits for welcome, transfers subscriptions without a new POST (0.441494ms)
+✔ unexpected disconnect retries and subscribes a new session; watchdog closes stale connection (1.028087ms)
+✔ wrong channel, malformed, stale or ordinary chat ignored; no raw error leaks (0.543178ms)
+✔ unsafe reconnect destination rejected without connecting (0.349386ms)
+✔ subscription authorization errors do not report connected (3.640127ms)
+✔ revocation stops without automatic credential renewal (0.460904ms)
+✔ missing welcome closes socket and schedules bounded reconnect (0.589597ms)
+✔ late old subscription success cannot activate closed socket or close its healthy replacement (1.100396ms)
+✔ late old subscription authorization failure cannot stop a replacement (0.47815ms)
+✔ closed readyState guards subscription completion even before onclose delivery (0.499962ms)
+✔ stop then restart invalidates outstanding subscription and late callbacks (1.351634ms)
+✔ duplicate welcome creates one subscription; pre-welcome chat cannot mutate game (0.304739ms)
+✔ old watchdog and old reconnect packets cannot disturb migrated connection (0.377538ms)
+✔ future and over-age notifications dropped; valid current packet carries receive time (0.243596ms)
+✔ failed migration retries a fresh subscription without leaving old connection stranded (0.701305ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317.371118

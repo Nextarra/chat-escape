@@ -1,0 +1,184 @@
+
+> chat-escape-observatory@0.1.0 test:polish
+> node test/polish-browser.js
+
+{
+  "suite": "Spectator HUD and mobile polish",
+  "browser": "154.0.8037.57",
+  "passed": 19,
+  "failed": 0,
+  "checks": [
+    "Dedicated HUD has no controller, inputs or forms",
+    "HUD fits exact 1280×720 with no scrolling",
+    "1280px objective ≥30px and team commands ≥24px",
+    "Alignment commands and last action fit above the clue strip",
+    "Charge HUD shows 12-second window after first contribution",
+    "Charge countdown updates from authoritative server time",
+    "Paused HUD replaces countdown with explicit wait/resume instruction",
+    "Victory opens illustrated portal, replaces ready scene and credits all three teams",
+    "Reduced-motion mode reveals final state with zero transition duration",
+    "Account disclosure and clue panel do not overlap",
+    "HUD scales to 1920×1080 without scrolling",
+    "Wide browser letterboxes the 16:9 HUD without enlarging text beyond its layout",
+    "Normal-motion reveal completes with open doors and visible home scene",
+    "390px first screen includes join commands and all streamer controls",
+    "Primary streamer controls have ≥44×44px touch targets",
+    "Keyboard reaches start and pause in logical order",
+    "Sticky controls remain reachable; focused form field scrolls clear of toolbar",
+    "Controller has no horizontal overflow at 320px or 390px",
+    "No browser exceptions during HUD and mobile state changes"
+  ],
+  "keySizes": {
+    "objective": 34.048,
+    "command": 24.32
+  },
+  "mobileMetrics": {
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "documentHeight": 2281,
+    "joinBottom": 292.390625,
+    "controlsBottom": 496.984375
+  },
+  "axeVersion": "4.14.0",
+  "accessibility": [
+    {
+      "name": "hud-ready-1280",
+      "violations": [],
+      "passes": 14,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 3
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": ".room-head > span:nth-child(1)",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#run",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#phase",
+          "ratio": 11.79
+        }
+      ]
+    },
+    {
+      "name": "hud-align-1280",
+      "violations": [],
+      "passes": 14,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 3
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": ".room-head > span:nth-child(1)",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#run",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#phase",
+          "ratio": 11.79
+        }
+      ]
+    },
+    {
+      "name": "hud-charge-1280",
+      "violations": [],
+      "passes": 14,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 3
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": ".room-head > span:nth-child(1)",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#run",
+          "ratio": 11.79
+        },
+        {
+          "selector": "#phase",
+          "ratio": 11.79
+        }
+      ]
+    },
+    {
+      "name": "hud-victory-1280",
+      "violations": [],
+      "passes": 14,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 3
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": ".room-head > span:nth-child(1)",
+          "ratio": 9.88
+        },
+        {
+          "selector": "#run",
+          "ratio": 9.88
+        },
+        {
+          "selector": "#phase",
+          "ratio": 9.88
+        }
+      ]
+    },
+    {
+      "name": "controller-mobile-390",
+      "violations": [],
+      "passes": 23,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 2
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": ".room-head > span:nth-child(1)",
+          "ratio": 9.25
+        },
+        {
+          "selector": "#phase",
+          "ratio": 9.25
+        }
+      ]
+    },
+    {
+      "name": "controller-desktop-1440",
+      "violations": [],
+      "passes": 23,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 1
+        }
+      ],
+      "supplementaryContrast": [
+        {
+          "selector": "#objective",
+          "ratio": 14.53
+        }
+      ]
+    }
+  ],
+  "limits": "Automated WCAG-tagged axe checks and geometry/keyboard assertions; not full accessibility certification. Twitch and OBS untested."
+}

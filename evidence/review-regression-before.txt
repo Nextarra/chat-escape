@@ -1,0 +1,58 @@
+✖ out-of-order charges spanning 21 seconds cannot win and replay identically (4.133861ms)
+✖ late old subscription success cannot activate closed socket or close its healthy replacement (4.648105ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.28487
+
+✖ failing tests:
+
+test at ../../tmp/chat-escape-regression-before/chat-escape/test/game.test.js:17:1
+✖ out-of-order charges spanning 21 seconds cannot win and replay identically (4.133861ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'escaped'
+  - 'out-of-order'
+  
+      at TestContext.<anonymous> (file:///tmp/chat-escape-regression-before/chat-escape/test/game.test.js:19:67)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'escaped',
+    expected: 'out-of-order',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../tmp/chat-escape-regression-before/chat-escape/test/twitch.test.js:24:1
+✖ late old subscription success cannot activate closed socket or close its healthy replacement (4.648105ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - Socket {
+  -   closed: true,
+  -   onclose: [Function (anonymous)],
+  -   onerror: [Function (anonymous)],
+  -   onmessage: [AsyncFunction (anonymous)],
+  -   url: 'wss://eventsub.wss.twitch.tv/ws'
+  - }
+  
+      at TestContext.<anonymous> (file:///tmp/chat-escape-regression-before/chat-escape/test/twitch.test.js:27:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: [Socket],
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

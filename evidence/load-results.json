@@ -1,0 +1,9 @@
+{
+  "mode": "fixture",
+  "recognizedCommands": 500,
+  "accepted": 500,
+  "totalMs": 193.62,
+  "meanMsPerCommand": 0.387,
+  "persistence": "atomic local journal write on every action",
+  "scope": "single process, 500 synthetic joins; not sustained throughput or Twitch-scale evidence"
+}
