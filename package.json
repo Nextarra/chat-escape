@@ -1,0 +1,20 @@
+{
+  "name": "chat-escape-observatory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.js",
+    "replay": "node test/replay.js",
+    "test:polish": "node test/polish-browser.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "playwright": "1.62.1"
+  }
+}
