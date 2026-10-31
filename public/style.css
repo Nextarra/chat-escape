@@ -5,3 +5,8 @@
 @media(prefers-reduced-motion:reduce){.portal-world,.portal-door{transition:none!important}.won .portal{animation:none!important}}
 /* Keep reading surfaces solid; reserve gradients for the decorative sky/portal. */
 body{background:#0c1019}
+
+.streamer-actions label{display:flex;align-items:center;gap:.5rem;font-size:.8rem}.streamer-actions select{background:#111d27;color:#e4efe9;border:1px solid #556873;border-radius:6px;padding:.55rem;max-width:100%}
+select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.streamer-actions select{min-height:44px;min-width:0}select{scroll-margin-top:180px}@media(max-width:800px){.streamer-actions label{flex-basis:100%}.streamer-actions select{flex:1}html{scroll-padding-top:220px}input,button,a,summary,select{scroll-margin-top:230px}}
+
+dialog{background:#14232c;color:#e4efe9;border:1px solid #708b95;border-radius:12px;padding:24px;max-width:min(90vw,480px)}dialog::backdrop{background:#000b}dialog .buttons{display:flex;gap:12px;justify-content:flex-end}
