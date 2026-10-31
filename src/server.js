@@ -33,8 +33,9 @@ export function createApp({journal=null,mode='fixture',clock=Date.now}={}){
     if(!a||typeof a!=='object')return send(400,{error:'Invalid action'});
     if(path==='/api/control'){
       if(!['start','pause','reset'].includes(a.type))return send(400,{error:'Unknown control'});
+      if(a.playMode!==undefined&&(a.type!=='reset'||!['coop','solo'].includes(a.playMode)))return send(400,{error:'Choose cooperative or solo only when starting a new expedition'});
       if(mode==='live'&&a.type==='start'&&(storageBlocked||connection!=='connected'))return send(409,{error:'Twitch must be connected before resuming'});
-      const result=store.apply({type:a.type,now:clock()});return send(200,{result});
+      const result=store.apply({type:a.type,...(a.playMode!==undefined?{playMode:a.playMode}:{}),now:clock()});return send(200,{result});
     }
     if(mode!=='fixture')return send(403,{error:'Fixture injection disabled in live mode'});
     const result=ingest({id:a.id,user:a.user,text:a.text,run:a.run});return send(200,{result});
