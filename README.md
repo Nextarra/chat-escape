@@ -1,8 +1,10 @@
+> **October 31 live update:** The approved real Twitch solo playthrough passed as nextarra: 16 accepted, 0 duplicate, 0 rejected; 3 clues and SOLO WON with one active account. The final five commands completed in 6.726 seconds of observed browser execution. See `evidence/twitch-live-solo-2026-10-31.json`. No continuous video was recorded. Cooperative live victory and mobile layout remain unverified; publication/submission remain on HOLD. Detailed limitations below distinguish current validation from historical evidence.
+
 # Chat Escape — The Last Observatory
 
-A standalone, playable Twitch chat escape room prototype built with Codex. One original room, three complementary viewer teams, one shared reveal. **Default mode is FIXTURE SIMULATION. No live Twitch integration has been exercised.**
+A standalone, playable Twitch chat escape room prototype built with Codex. One original room, three complementary viewer teams, one shared reveal. **Default mode is FIXTURE SIMULATION. A real one-account Twitch smoke test passed on October 30, 2026; full live multiplayer acceptance remains pending.**
 
-The runtime is a local Node.js server with a controller and a separate spectator overlay. Live Twitch acceptance testing is still pending; the included replay and screenshots use synthetic viewers.
+The runtime is a local Node.js server with a controller and a separate spectator overlay. The verified live test accepted `!join scout` and `!scan prism` from nextarra through Twitch/EventSub: 2 accepted, 0 duplicate deliveries, 0 rejected, and 1/3 fragments recovered. No stream or camera was started. The included replay and archived screenshots use synthetic viewers; three-account cooperation, real reconnect behavior, and OBS composition remain unverified. See `READINESS.md`.
 
 ## Quick start (no package installation required)
 
@@ -12,7 +14,7 @@ Install Node.js 22+ (tested on Node 24.19.0), unzip, open this directory and run
 node src/server.js
 ```
 
-Open **http://127.0.0.1:4317**. Choose **Play guided cooperation replay**. Three clearly synthetic viewers complete the room in about 12 seconds. You can also start the game and use the fixture chat form manually. Open **http://127.0.0.1:4317/overlay** as a local OBS Browser Source; choose **1280×720** (also tested at 1920×1080). The HUD is a separate 16:9 composition with large team commands, the objective, a server-driven charge countdown, recovered clues and last meaningful action. It does not load the controller or its marketing hero. The overlay contains no controller controls or fixture inputs. OBS itself was not exercised here.
+Open **http://127.0.0.1:4317**. Choose **Play guided fixture replay**. Three clearly synthetic viewers complete the room in about 12 seconds. You can also start the game and use the fixture chat form manually. Open **http://127.0.0.1:4317/overlay** as a local OBS Browser Source; choose **1280×720** (also tested at 1920×1080). The HUD is a separate 16:9 composition with large team commands, the objective, a server-driven charge countdown, recovered clues and last meaningful action. It does not load the controller or its marketing hero. The overlay contains no controller controls or fixture inputs. OBS itself was not exercised here.
 
 Keep one server process per journal and use the same hostname in the browser. The server binds only to IPv4 loopback, rejects nonlocal Host headers and requires its HTTP-only same-site control cookie plus an exact Origin on mutations. These are local workstation protections; this is not a public hosting configuration. Do not expose the port publicly without a separate authenticated deployment design.
 
@@ -20,11 +22,13 @@ Keep one server process per journal and use the same hostname in the browser. Th
 
 `/overlay` is spectator-only and letterboxes to 16:9 in other browser shapes. Use 1280×720 or 1920×1080 for a browser source. Fixture/live disclosure stays at the top. Victory opens an original CSS-drawn portal into a home landscape and credits all three teams. With reduced motion enabled, the complete reveal appears without transitions. No external assets, audio or copyrighted game art are used.
 
-The controller puts join/current team commands above the fold at 390×844. Its sticky toolbar keeps start/resume, pause and reset reachable; form focus scrolls clear of it. The log is collapsed until opened. See `POLISH_REVIEW.md` and the numbered screenshots for verified states and limits.
+Historical cooperative-build checks placed join commands above the fold at 390x844. The new solo controller has not been verified at mobile width; the supported viewport override did not apply. The sticky toolbar provides start/resume, pause and reset, and the log is collapsed until opened. See POLISH_REVIEW.md for historical results and evidence/solo-candidate-review.md for current checks and limits.
 
 ## How to play
 
-Three actual accounts are needed for live play (the streamer can be one of them):
+Cooperative expedition (default) needs three actual accounts for a full live victory; the streamer can be one. Optional **Solo expedition** uses one real account: select it under **Next expedition**, create a new expedition, and switch stations with `!join`. Clues and votes persist, other accounts cannot join that run, and the final charge window is 30 seconds. See `SOLO-CANDIDATE.md` for the exact sequence and completed live validation.
+
+Cooperative role commands:
 
 | Team | Join | Discover |
 | --- | --- | --- |
@@ -32,13 +36,13 @@ Three actual accounts are needed for live play (the streamer can be one of them)
 | Scribe | `!join scribe` | `!decode mural` |
 | Engineer | `!join engineer` | `!tune radio` |
 
-Roles are locked for the expedition. Each role reveals a different clue. Once all three fragments are recovered, viewers combine them to infer the correct orbit sequence. Every team must send `!vote moon-star-sun`; the alternatives are `!vote sun-star-moon` and `!vote star-moon-sun`. The most recent accepted vote represents that team. Then each team sends `!charge` within a 12-second window. Expired charges need renewing. The shared gate opens only when all three roles contribute.
+In cooperative mode, roles are locked for the expedition. Each role reveals a different clue. Once all three fragments are recovered, viewers combine them to infer the correct orbit sequence. Every team must send `!vote moon-star-sun`; the alternatives are `!vote sun-star-moon` and `!vote star-moon-sun`. The most recent accepted vote represents that team. Then each team sends `!charge` within a 12-second window. Expired charges need renewing. The shared gate opens only when all three roles contribute.
 
-Command times must be nondecreasing across accepted gameplay actions. Live ingress rejects any timestamp ahead of the local receive clock and anything more than two minutes old. Earlier-than-accepted commands are dropped rather than reordered; ask the viewer to repeat the command. Messages at or before a reset/resume boundary (including its exact millisecond) are conservatively rejected. Keep the host clock synchronized. This deliberate policy may drop legitimate out-of-order or clock-skewed packets; live behavior still needs testing. The charge window uses event time, includes exactly 12,000ms, excludes 12,001ms, and never counts a charge dated after the current event/view clock.
+Command times must be nondecreasing across accepted gameplay actions. Live ingress rejects any timestamp ahead of the local receive clock and anything more than two minutes old. Earlier-than-accepted commands are dropped rather than reordered; ask the viewer to repeat the command. Messages at or before a reset/resume boundary (including its exact millisecond) are conservatively rejected. Keep the host clock synchronized. This deliberate policy may drop legitimate out-of-order or clock-skewed packets; live behavior still needs testing. The charge window uses event time, includes exactly 12,000ms in cooperative mode (30,000ms solo), excludes the next millisecond, and never counts a charge dated after the current event/view clock.
 
 The deterministic reducer receives recorded `now` (event time) and `receivedAt` (ingress time). Local HTTP ingress supplies both; callers cannot override them via the fixture form. Existing version-0 journals without `receivedAt` replay with receipt equal to event time, while the revised ordering/window rules apply. An old journal that exploited a defect may therefore replay into a corrected, unsolved state.
 
-The 800ms per-account cooldown applies to valid commands. One account cannot occupy several roles; multiple accounts controlled by one person cannot be detected. Team voting is deliberately transparent and cooperative; a disruptive member of a team can change its vote. Existing Twitch moderation remains the streamer's responsibility. There are no outbound chat messages, whispers, purchases, external links in chat, or generated game actions.
+The 800ms per-account cooldown applies to valid commands. In cooperative mode, one account cannot switch roles; multiple accounts controlled by one person cannot be detected. Team voting is deliberately transparent and cooperative; a disruptive member of a team can change its vote. Existing Twitch moderation remains the streamer's responsibility. There are no outbound chat messages, whispers, purchases, external links in chat, or generated game actions.
 
 ## Reproduce verification
 
@@ -64,7 +68,7 @@ Read `evidence/unit-tests.txt`, `evidence/browser-results.json`, `evidence/repla
 
 ## Adapter readiness and live prerequisites
 
-`src/twitch.js` implements Twitch EventSub WebSockets using documented `channel.chat.message` version 1, with welcome/session subscription, lifecycle/generation guards on asynchronous subscription completion, keepalive watchdog, notification validation, migration without duplicate subscription, reconnect backoff, revocation stop and authorization failure stop. Closed/superseded sockets and their late callbacks cannot promote themselves or stop a healthy replacement; duplicate welcomes do not create a second subscription. The only remote write is the required EventSub subscription POST; **it has only been mocked here**. The application never sends chat.
+`src/twitch.js` implements Twitch EventSub WebSockets using documented `channel.chat.message` version 1, with welcome/session subscription, lifecycle/generation guards on asynchronous subscription completion, keepalive watchdog, notification validation, migration without duplicate subscription, reconnect backoff, revocation stop and authorization failure stop. Closed/superseded sockets and their late callbacks cannot promote themselves or stop a healthy replacement; duplicate welcomes do not create a second subscription. The only remote write is the required EventSub subscription POST; it was exercised by the October 30 one-account live connection; lifecycle failure scenarios remain mock-tested. The application never sends chat.
 
 Before any live run, obtain owner authorization for the specific app/account access and EventSub subscription. An authorized developer must provide an existing registered Twitch application Client ID, numeric broadcaster ID, numeric authorized user ID and matching **user access token** with `user:read:chat`. Verify current Twitch requirements, token ownership/expiration and Client ID match. This package does not create credentials, grant OAuth, refresh tokens or log token values. `src/authorization.js` validates the supplied token before connecting and at least hourly; invalid identity, Client ID, scope, expiry, revocation or unavailable validation stops the connection. The local installed-app route requires user ID to equal broadcaster ID.
 
@@ -74,9 +78,9 @@ Use a private shell/environment manager to supply `TWITCH_CLIENT_ID`, `TWITCH_BR
 node src/server.js --live
 ```
 
-No real values are included. Do not put tokens in URLs, browser code, recordings, repository or the delivered archive. Live mode refuses fixture injection. It starts idle and restores playing games as paused; only resume when Twitch is connected. Any adapter disconnect pauses gameplay; reconnect does not resume it automatically. Live packets older than 2 minutes or predating the current reset are ignored. The environment needs approved HTTPS access to `id.twitch.tv` and `api.twitch.tv` and WebSocket access to `eventsub.wss.twitch.tv`; the present cloud policy does not grant these. Use the supported network configuration process; do not bypass its proxy.
+No real values are included. Do not put tokens in URLs, browser code, recordings, repository or the delivered archive. Live mode refuses fixture injection. It starts idle and restores playing games as paused; only resume when Twitch is connected. Any adapter disconnect pauses gameplay; reconnect does not resume it automatically. Live packets older than 2 minutes or predating the current reset are ignored. The environment needs approved HTTPS access to `id.twitch.tv` and `api.twitch.tv` and WebSocket access to `eventsub.wss.twitch.tv`. These endpoints were exercised by the successful authorized Lenovo live test; other environments must use their supported network configuration.
 
-Run the acceptance checklist in `DEMO.md` with actual Twitch accounts before claiming live success. Live verification and the final hackathon submission are pending.
+Run the acceptance checklist in `DEMO.md` with actual Twitch accounts before claiming live success. Full live multiplayer verification and final submission remain pending. Submission is explicitly ON HOLD until the owner reviews the completed package.
 
 ## Recovery and privacy
 
@@ -89,4 +93,9 @@ Hard bounds: 2,000 accounts per expedition, 20,000 recognized command IDs per ex
 ## Entry evidence
 
 `CODEX_SESSION_ID.txt` preserves the actual development session identifier. `DEMO.md` contains a 2:45 recording plan and the remaining live acceptance steps. `REQUIREMENTS.md` links features to evidence. `LICENSE` covers original project code. Consult the official rules for eligibility, dates, repository access and judging requirements; no prize or eligibility determination is promised.
+
+
+
+## Optional solo candidate (October 30)
+See SOLO-CANDIDATE.md for the optional one-account mode and verified 16-message live solo result. The live helper now runs this candidate. The public repository has not been updated; submission remains on HOLD.
 
