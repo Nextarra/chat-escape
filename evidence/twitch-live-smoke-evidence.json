@@ -1,0 +1,23 @@
+{
+  "verifiedAtUtc": "2026-10-30T07:38:19.4448185Z",
+  "channel": "https://www.twitch.tv/nextarra",
+  "sender": "nextarra",
+  "commands": [
+    "!join scout",
+    "!scan prism"
+  ],
+  "connection": "TWITCH CONNECTED",
+  "gameState": "PLAYING",
+  "accepted": 2,
+  "duplicatesBlocked": 0,
+  "rejected": 0,
+  "scoutViewers": 1,
+  "recoveredFragments": "1/3",
+  "recoveredClue": "The moon rises before the star.",
+  "verification": "Both commands observed once in Twitch chat; corresponding live UI transitions observed.",
+  "cameraAccessed": false,
+  "broadcastStarted": false,
+  "fixtureUsed": false,
+  "clipSharing": "Declined and confirmed",
+  "limitation": "Three real accounts required for complete cooperative play; only one-account smoke test performed."
+}

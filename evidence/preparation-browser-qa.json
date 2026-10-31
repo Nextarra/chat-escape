@@ -1,0 +1,27 @@
+{
+  "observedAt": "2026-10-30T08:03:09.316Z",
+  "mode": "ISOLATED FIXTURE SIMULATION — NOT LIVE TWITCH",
+  "transport": "Supported Chrome browser controls; temporary loopback fixture fault harness at 127.0.0.1:4321",
+  "viewport": {
+    "width": 1280,
+    "height": 495
+  },
+  "checks": [
+    "Controller and overlay show OFFLINE after intentional /api/state HTTP503.",
+    "Restoring identical READY payload restores both views; controller connection feedback clears; overlay objective/action/countdown restore.",
+    "Repeated outage in PAUSED state recovers both views without changing gameplay state.",
+    "Pause interrupts guided synthetic replay and re-enables replay control.",
+    "Paused fixture command is rejected; accepted count remains7 while rejected increments1.",
+    "Fresh replay after interruption reaches WON with12accepted0rejected, run03.",
+    "Replay repeated from WON reaches WON with12accepted0rejected, run04.",
+    "Reset cancellation preserved WON/run04; native dialog caused browser-control timeouts, resolved by confirming no dialog and reading a fresh tab.",
+    "Short-height overlay overlap reproduced in screenshot, fixed with container-relative compact spacing.",
+    "Final ALIGN screenshot shows route options/full last signal above fragments; lastBottom353.9896, fragmentsTop361.5833, clearance7.5937px."
+  ],
+  "limits": [
+    "No real Twitch messages, connection changes, credentials, camera, or broadcast in this QA pass.",
+    "Requested1280x720 viewport did not take effect; actual1280x495 is the only new measured geometry. Historical720/1080 results remain historical.",
+    "Screenshots were inspected through CUA; no new screenshot files are included in this archive.",
+    "Three-account live cooperation, real Twitch migration/reconnect, expiry/revocation and journal-backed live recovery remain pending."
+  ]
+}

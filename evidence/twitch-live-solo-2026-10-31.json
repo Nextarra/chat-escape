@@ -1,0 +1,107 @@
+{
+  "observedAtUtc": "2026-10-31T00:17:59.5218233Z",
+  "type": "Actual Twitch one-account solo playthrough",
+  "channel": "https://www.twitch.tv/nextarra",
+  "account": "nextarra",
+  "scope": "user:read:chat",
+  "source": "chat-escape-solo-candidate",
+  "transport": "Twitch channel.chat.message v1 EventSub WebSocket",
+  "browserReceipts": [
+    "nextarra: !join scout",
+    "nextarra: !scan prism",
+    "nextarra: !join scribe",
+    "nextarra: !decode mural",
+    "nextarra: !join engineer",
+    "nextarra: !tune radio",
+    "nextarra: !vote moon-star-sun",
+    "nextarra: !join scribe",
+    "nextarra: !vote moon-star-sun",
+    "nextarra: !join scout",
+    "nextarra: !vote moon-star-sun",
+    "nextarra: !charge",
+    "nextarra: !join scribe",
+    "nextarra: !charge",
+    "nextarra: !join engineer",
+    "nextarra: !charge"
+  ],
+  "approvedMessages": 16,
+  "sentMessages": 16,
+  "extraMessages": 0,
+  "duplicateSendRetries": 0,
+  "minimumIntentionalSpacingMs": 1100,
+  "finalFiveObservedElapsedMs": 6726,
+  "publicGameState": {
+    "version": 1,
+    "run": 2,
+    "playMode": "solo",
+    "chargeWindowSeconds": 30,
+    "status": "won",
+    "phase": "escaped",
+    "clues": [
+      {
+        "role": "scout",
+        "command": "!scan prism",
+        "title": "Prism telescope",
+        "clue": "The moon rises before the star."
+      },
+      {
+        "role": "scribe",
+        "command": "!decode mural",
+        "title": "Ancient mural",
+        "clue": "The star stands between moon and sun."
+      },
+      {
+        "role": "engineer",
+        "command": "!tune radio",
+        "title": "Broken radio",
+        "clue": "The sun closes the sequence."
+      }
+    ],
+    "teams": [
+      {
+        "role": "scout",
+        "count": 0,
+        "vote": "moon-star-sun",
+        "charged": false,
+        "chargeSeconds": 0
+      },
+      {
+        "role": "scribe",
+        "count": 0,
+        "vote": "moon-star-sun",
+        "charged": false,
+        "chargeSeconds": 0
+      },
+      {
+        "role": "engineer",
+        "count": 1,
+        "vote": "moon-star-sun",
+        "charged": false,
+        "chargeSeconds": 0
+      }
+    ],
+    "events": [
+      "The observatory wakes. Choose your team.",
+      "scout team found a fragment: The moon rises before the star.",
+      "scribe team found a fragment: The star stands between moon and sun.",
+      "engineer team found a fragment: The sun closes the sequence.",
+      "All fragments found. Switch roles and set an orbit vote at each station.",
+      "Orbits aligned. Switch roles and charge all three stations within 30 seconds.",
+      "The gate opens. One explorer completed all three stations."
+    ],
+    "stats": {
+      "accepted": 16,
+      "duplicate": 0,
+      "rejected": 0
+    },
+    "startedAt": 1793405693755,
+    "finishedAt": 1793405837818,
+    "mode": "live",
+    "connection": "connected"
+  },
+  "cameraUsed": false,
+  "broadcastStarted": false,
+  "fixtureInputUsed": false,
+  "cooperativeVictoryVerified": false,
+  "continuousVideoCaptured": false
+}
